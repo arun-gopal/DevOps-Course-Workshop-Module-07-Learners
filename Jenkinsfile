@@ -30,7 +30,7 @@ pipeline {
     }
     post { 
         always { 
-            publishCoverage failUnhealthy: true, globalThresholds: [[thresholdTarget: 'Package', unhealthyThreshold: 90.0]], adapters: [istanbulCoberturaAdapter('DotnetTemplate.Web/coverage/cobertura-coverage.xml')]
+            publishCoverage failUnhealthy: true, globalThresholds: [[thresholdTarget: 'Report', unhealthyThreshold: 90.0]], adapters: [istanbulCoberturaAdapter('DotnetTemplate.Web/coverage/cobertura-coverage.xml')]
         }
     }
 }
