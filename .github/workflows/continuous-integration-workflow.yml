@@ -13,4 +13,7 @@ jobs:
         who-to-greet: 'Mona the Octocat'
     - name: Build C# code
       run: dotnet build
-      
+    - name: Run NPM install
+      working-directory: DotnetTemplate.Web
+      run: npm install
+
