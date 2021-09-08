@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     stages {
         stage('Back-end') {
             agent {
@@ -29,7 +29,6 @@ pipeline {
         }
     }
     post { 
-        agent any
         always { 
             publishCoverage adapters: [istanbulCoberturaAdapter('target/site/cobertura-coverage.xml')]
         }
