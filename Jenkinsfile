@@ -6,7 +6,8 @@ pipeline {
                 docker { image 'mcr.microsoft.com/dotnet/sdk:5.0' }
             }
             steps {
-                sh 'dotnet -h'
+                sh 'dotnet build'
+                sh 'dotnet test'
             }
         }
         stage('Front-end') {
@@ -15,6 +16,12 @@ pipeline {
             }
             steps {
                 sh 'node --version'
+                dir('DotnetTemplate.Web'){
+                    sh 'npm install'
+                    sh 'npm run build'
+                    sh 'npm t'
+                    sh 'npm run lint'
+                }
             }
         }
     }
