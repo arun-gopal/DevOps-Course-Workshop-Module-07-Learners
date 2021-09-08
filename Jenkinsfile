@@ -29,8 +29,9 @@ pipeline {
         }
     }
     post { 
+         agent any
         always { 
-            publishCoverage adapters: [istanbulCoberturaAdapter('cobertura-coverage.xml')]
+            publishCoverage adapters: [istanbulCoberturaAdapter('target/site/cobertura-coverage.xml')]
         }
     }
 }
