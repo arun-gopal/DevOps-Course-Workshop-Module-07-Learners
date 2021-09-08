@@ -1,14 +1,18 @@
 pipeline {
-    agent {
-        docker { image 'mcr.microsoft.com/dotnet/sdk:5.0' }
-    }
+    agent none
     stages {
-        stage('Example') {
+        stage('Back-end') {
+            agent {
+                docker { image 'mcr.microsoft.com/dotnet/sdk:5.0' }
+            }
             steps {
-                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                sh 'dotnet -h'
             }
         }
-        stage('Test') {
+        stage('Front-end') {
+            agent {
+                docker { image 'node:14-alpine' }
+            }
             steps {
                 sh 'node --version'
             }
