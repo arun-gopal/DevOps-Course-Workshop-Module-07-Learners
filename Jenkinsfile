@@ -30,7 +30,7 @@ pipeline {
     }
     post { 
         always { 
-            publishCoverage adapters: [istanbulCoberturaAdapter('cobertura-coverage.xml')]
+            publishCoverage adapters: [istanbulCoberturaAdapter('DotnetTemplate.Web/coverage/cobertura-coverage.xml')]
         }
     }
 }
